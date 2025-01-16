@@ -7,9 +7,9 @@ from .serializers import LessonSerializer
 # Create my views here
 
 class LessonListView(APIView):
-    def get(self, request, pk):
+    def get(self, request):
         try:
-            lessons = Lesson.objects.get(pk=pk)
+            lessons = Lesson.objects.all()
             serializer = LessonSerializer(lessons, many = True)
             return Response(serializer.data)
         except Lesson.DoesNotExist:
