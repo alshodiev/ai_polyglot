@@ -1,0 +1,64 @@
+/* Global Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+/* Feedback Page Container */
+.feedback {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.feedback h1 {
+    text-align: center;
+    color: #4caf50;
+    margin-bottom: 20px;
+}
+
+/* Goals Section */
+.goals-section {
+    margin-bottom: 30px;
+}
+
+.goals-section h2 {
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+.goals-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.goals-section ul li {
+    background-color: #f0f9f4;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #d4e9d7;
+}
+
+/* Feedback Section */
+.feedback-section h2 {
+    color: #4caf50;
+    margin-bottom: 10px;
+}
+
+.feedback-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.feedback-section ul li {
+    background-color: #f4f8fc;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #cfdceb;
+}

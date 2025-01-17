@@ -1,0 +1,173 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #3a3ac9;
+    color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #28293e;
+    border-bottom: 2px solid #3e405e;
+}
+
+.navbar h1 {
+    font-size: 24px;
+    color: #4caf50;
+}
+
+.navbar-links a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.navbar-links a:hover {
+    color: #4caf50;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    display: flex;
+    padding: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 25%;
+    padding: 20px;
+    background-color: #28293e;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.profile-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.edit-profile-button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-profile-button:hover {
+    background-color: #45a049;
+}
+
+.sidebar-section {
+    margin-top: 20px;
+}
+
+.sidebar-section h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.sidebar-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar-section ul li {
+    margin-bottom: 10px;
+}
+
+/* Main Content */
+.main-content {
+    width: 75%;
+}
+
+.stats-box {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.pie-chart,
+.badges {
+    text-align: center;
+}
+
+.badges .badge {
+    display: inline-block;
+    font-size: 24px;
+    margin: 5px;
+}
+
+.heatmap-box {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.heatmap {
+    height: 150px;
+    background-color: #3e405e;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.heatmap-stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.recent-lessons ul {
+    list-style: none;
+    padding: 0;
+}
+
+.recent-lessons ul li {
+    background-color: #28293e;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+/* Heatmap Styles */
+.react-calendar-heatmap {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.color-empty {
+    fill: #3e405e; /* Empty days */
+}
+
+.color-scale-1 {
+    fill: #4caf50; /* Light green for 1 activity */
+}
+
+.color-scale-2 {
+    fill: #45a049; /* Medium green for 2 activities */
+}
+
+.color-scale-3 {
+    fill: #388e3c; /* Darker green for 3+ activities */
+}
+
+.color-scale-4 {
+    fill: #2e7d32; /* Dark green for 4+ activities */
+}

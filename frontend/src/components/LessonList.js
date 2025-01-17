@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react';
 
-const LessonList = () => {
+const LessonList = ({ onLogout }) => {
     const [lessons, setLessons] = useState([]);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const fetchLessons = async () => {
             try {
-                const token = localStorage.getItem('accessToken');
                 const response = await fetch('http://127.0.0.1:8000/api/lessons/', {
                     method: 'GET',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
                     },
                 });
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch lessons');
+                    throw new Error(`Failed to fetch lessons. Status: ${response.status}`);
                 }
 
                 const data = await response.json();
                 setLessons(data);
             } catch (err) {
-                setError(err.message);
+                console.error("Error fetching lessons:", err.message);
+                setError("Failed to fetch lessons. Please try again later.");
             }
         };
 
@@ -30,18 +30,36 @@ const LessonList = () => {
     }, []);
 
     if (error) {
-        return <p>{error}</p>;
+        return <p style={{ color: 'red' }}>{error}</p>;
     }
 
     return (
-        <div>
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            {/* Logout Button */}
+            <button
+                onClick={onLogout}
+                style={{
+                    padding: '10px 20px',
+                    backgroundColor: '#ff4c4c',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '5px',
+                    cursor: 'pointer',
+                    marginBottom: '20px',
+                }}
+            >
+                Logout
+            </button>
+
             <h1>Lessons</h1>
-            <ul>
+            <ul style={{ listStyle: 'none', padding: 0 }}>
                 {lessons.map((lesson) => (
-                    <li key={lesson.id}>
+                    <li key={lesson.id} style={{ marginBottom: '20px', textAlign: 'left' }}>
                         <h2>{lesson.title}</h2>
                         <p>{lesson.content}</p>
-                        <p><strong>Language:</strong> {lesson.language}</p>
+                        <p>
+                            <strong>Language:</strong> {lesson.language}
+                        </p>
                     </li>
                 ))}
             </ul>

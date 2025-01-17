@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework import status
 from .models import Lesson
@@ -7,6 +8,8 @@ from .serializers import LessonSerializer
 # Create my views here
 
 class LessonListView(APIView):
+    permission_classes = [AllowAny]
+    
     def get(self, request):
         try:
             lessons = Lesson.objects.all()

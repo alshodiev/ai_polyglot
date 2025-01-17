@@ -1,0 +1,34 @@
+.homepage {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .btn.green {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .btn.white {
+    background-color: white;
+    border: 2px solid #ccc;
+    color: black;
+  }
+  

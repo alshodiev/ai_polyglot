@@ -1,57 +1,74 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = ({ onLoginSuccess }) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
 
-    const handleSubmit = async (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        try {
-            const response = await fetch('http://127.0.0.1:8000/api/token/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ username, password }),
-            });
 
-            if (!response.ok) {
-                throw new Error('Invalid username or password');
-            }
-
-            const data = await response.json();
-            localStorage.setItem('accessToken', data.access);
-            onLoginSuccess(); // Callback to notify successful login
-        } catch (err) {
-            setError(err.message);
+        if (username.trim() && password.trim()) {
+            // Simulate saving a token to localStorage
+            localStorage.setItem('accessToken', `${username}-mock-token`);
+            localStorage.setItem('username', username); // Save username
+            onLoginSuccess(); // Notify parent App.js that the user has logged in
+            navigate('/dashboard'); // Redirect to the dashboard
+        } else {
+            setError('Username and password cannot be empty');
         }
     };
 
     return (
-        <div>
+        <div style={{ textAlign: 'center', marginTop: '50px' }}>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleLogin} style={{ maxWidth: '300px', margin: '0 auto' }}>
                 <div>
-                    <label>Username:</label>
                     <input
                         type="text"
+                        placeholder="Username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        style={{
+                            padding: '10px',
+                            marginBottom: '10px',
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
                         required
                     />
                 </div>
                 <div>
-                    <label>Password:</label>
                     <input
                         type="password"
+                        placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        style={{
+                            padding: '10px',
+                            marginBottom: '10px',
+                            width: '100%',
+                            boxSizing: 'border-box',
+                        }}
                         required
                     />
                 </div>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button type="submit">Login</button>
+                <button
+                    type="submit"
+                    style={{
+                        padding: '10px 20px',
+                        backgroundColor: '#4caf50',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '5px',
+                        cursor: 'pointer',
+                    }}
+                >
+                    Login
+                </button>
             </form>
         </div>
     );
