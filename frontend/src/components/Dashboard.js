@@ -31,7 +31,7 @@ const Dashboard = () => {
                 <div className="navbar-links">
                     <a href="/">Home</a>
                     <a href="/lessons">Lessons</a>
-                    <a href="/chatbot">Chat Bot</a>
+                    <a href="/practice">Practice</a>
                     <a href="/feedbackpage">Feedback</a>
                     <a href="/flashcards">Flashcards</a>
                     <a href="/logout">Logout</a>

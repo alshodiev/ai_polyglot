@@ -6,7 +6,7 @@ import Login from './components/Login';
 import LessonList from './components/LessonList';
 import Profile from './components/Profile.js';
 import Dashboard from './components/Dashboard';
-import PracticeChat from './components/PracticeChat.js';
+import Practice from './components/Practice.js';
 import PrivateRoute from './components/PrivateRoute';
 import FeedbackPage from './components/FeedbackPage.js';
 
@@ -63,10 +63,10 @@ const App = () => {
                     }
                 />
                 <Route
-                    path="/practice-chat"
+                    path="/practice"
                     element={
                         <PrivateRoute isLoggedIn={isLoggedIn}>
-                            <PracticeChat />
+                            <Practice />
                         </PrivateRoute>
                     }
                 />
