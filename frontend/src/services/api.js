@@ -9,3 +9,19 @@ export const getLessons = async () => {
         throw error;
     }
 };
+
+export const processAudio = async (audioBlob) => {
+    const formData = new FormData();
+    formData.append("file", audioBlob, "recording.wav");
+  
+    const response = await fetch("http://127.0.0.1:8000/api/process-audio/", {
+      method: "POST",
+      body: formData,
+    });
+  
+    if (!response.ok) {
+      throw new Error("Failed to process audio");
+    }
+  
+    return await response.json();
+  };
